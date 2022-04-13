@@ -1,4 +1,4 @@
-const path = require('path');const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path'); const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: './public/index.html',
@@ -6,7 +6,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     inject: 'body'
 })
 
-  module.exports = {
+module.exports = {
     name: 'browser',
     mode: 'development',
     entry: './src/index.js',
@@ -18,6 +18,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
         rules: [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             {test: /\.csv$/, loader: 'csv-loader', options: {
+
                     dynamicTyping: true,
                     header: true,
                     skipEmptyLines: true
