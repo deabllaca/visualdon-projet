@@ -6,7 +6,6 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     inject: 'body'
 })
 
-
 module.exports = {
     name: 'browser',
     mode: 'development',
@@ -18,8 +17,8 @@ module.exports = {
     module: {
         rules: [
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-            {
-                test: /\.csv$/, loader: 'csv-loader', options: {
+            {test: /\.csv$/, loader: 'csv-loader', options: {
+
                     dynamicTyping: true,
                     header: true,
                     skipEmptyLines: true
