@@ -1,5 +1,4 @@
-import './stat1.js'
-import './statistiques-menages.js'
+import "./statistiques-menages.js"
 import "./statistiques-transport.js"
 import "./statistiques-population"
 
