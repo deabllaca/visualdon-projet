@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
 
 //importation des données
-import transport from '../data/dataset-sommets-modifie.csv'
+import fichier from '../data/dataset-sommets-modifie.csv'
 
-const tableau = transport.map((d, i) => {
+const tableau = fichier.map((d, i) => {
     const values = {
         "sommet": d.sommet,
         "altitude": d.altitude
@@ -11,7 +11,7 @@ const tableau = transport.map((d, i) => {
     return values
 })
 
-console.log(tableau);
+// console.log(tableau);
 
 
 //Définition des marges
@@ -146,8 +146,8 @@ svg.selectAll("circles")
     .attr("cy", d => y(d.altitude))
     .attr("r", "25")
     .style("fill", `palevioletred`)
-.on('mouseover', onMouseOverCircle)
-.on('mouseout', onMouseOutCircle)
+    .on('mouseover', onMouseOverCircle)
+    .on('mouseout', onMouseOutCircle)
 
 
 svg.selectAll('.groupe')
@@ -160,8 +160,8 @@ svg.selectAll('.groupe')
     .style("font-size", "19")
     .style("fill", `white`)
     .style("opacity", 0)
-.on('mouseover', onMouseOverText)
-.on('mouseout', onMouseOutText)
+    .on('mouseover', onMouseOverText)
+    .on('mouseout', onMouseOutText)
 
 
 

@@ -6,7 +6,7 @@ import { json } from 'd3-fetch'
 import population from '../data/population-par-canton-2020.csv'
 
 
-console.log("Test");
+// console.log("Test");
 
 let listeCantons = []
 
@@ -16,13 +16,17 @@ population.forEach(row => {
     // row['Cantons', 'Population_1er_janvier', 'Naissances', 'Deces', 'Accroissement_naturel', 'Migrations_internationales', 'Migrations_intercantonales', 'Population_31_decembre', 'Variation']
     listeCantons.push(cantonsData)
 });
-console.log(listeCantons);
+// console.log(listeCantons);
 
 let margin = { top: 20, right: 20, bottom: 30, left: 50 },
     width = 650 - margin.left - margin.right,
     height = 2000 - margin.top - margin.bottom;
 
-let svg = d3.select("#graph")
+//  d3.select("body")
+//     .append("div")
+//     .attr('id', 'graph4')
+
+let svg = d3.select("#graph4")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);

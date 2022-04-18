@@ -2,9 +2,9 @@ import * as d3 from 'd3';
 
 
 //importation des données
-import transport from '../data/dataset-transport.csv'
+import fichier from '../data/dataset-transport.csv'
 
-const tableau = transport.map((d, i) => {
+const tableau = fichier.map((d, i) => {
     const values = {
         "annee": d.annee,
         "temps": d.temps
@@ -22,9 +22,9 @@ let width = 1200 - margin.left - margin.right,
 
 let container = d3.select("body")
     .append("div")
-    .attr('id', 'graph')
+    .attr('id', 'graph1')
 
-let svg = d3.select("#graph")
+let svg = d3.select("#graph1")
 
     .append("svg")
     .attr("width", width + margin.left + margin.right)
