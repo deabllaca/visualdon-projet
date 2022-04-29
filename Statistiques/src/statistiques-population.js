@@ -28,9 +28,9 @@ let svg = d3.select("#graph4")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-//      d3.select("body")
-//     .append("div")
-//     .attr('id', 'graph4')
+ d3.select("body")
+    .append("div")
+    .attr('id', 'graph4')
 
 // let svg = d3.select("#graph4")
 //     .append("svg")
