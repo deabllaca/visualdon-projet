@@ -22,9 +22,9 @@ let margin = { top: 20, right: 20, bottom: 30, left: 50 },
     width = 650 - margin.left - margin.right,
     height = 2000 - margin.top - margin.bottom;
 
-//  d3.select("body")
-//     .append("div")
-//     .attr('id', 'graph4')
+ d3.select("body")
+    .append("div")
+    .attr('id', 'graph4')
 
 let svg = d3.select("#graph4")
     .append("svg")

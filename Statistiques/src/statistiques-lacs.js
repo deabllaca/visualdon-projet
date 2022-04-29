@@ -372,7 +372,12 @@ let radius = 200;
 let g = svg.append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-
+// // Step 1        
+let data = [{ name: "Alex", share: 20.70 },
+{ name: "Shelly", share: 30.92 },
+{ name: "Clark", share: 15.42 },
+{ name: "Matt", share: 13.65 },
+{ name: "Jolene", share: 19.31 }];
 
 // Définition de la scale
 let ordScale = d3.scaleOrdinal()
@@ -388,15 +393,9 @@ let pie = d3.pie().value(function (d) {
 
 
 
-// // Step 1        
-let data = [{ name: "Alex", share: 20.70 },
-{ name: "Shelly", share: 30.92 },
-{ name: "Clark", share: 15.42 },
-{ name: "Matt", share: 13.65 },
-{ name: "Jolene", share: 19.31 }];
 
 
-
+ console.log(pie(data));
 
 //Création d'un arc reçevant les données adaptés pour le pie
 let arc = g.selectAll("arc")
@@ -405,11 +404,11 @@ let arc = g.selectAll("arc")
 
 // Step 6
 let path = d3.arc()
-    .outerRadius(radius)
-    .innerRadius(0);
+    .outerRadius(radius) //rayon externe
+    .innerRadius(0); //rayon interne
 
 arc.append("path")
-    .attr("d", path) // ça va suivre le patg
+    .attr("d", path) // ça va suivre le path
     .attr("fill", function (d) { return ordScale(d.data.name); });
 
 // Step 7
