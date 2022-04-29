@@ -1,42 +1,201 @@
 import * as d3 from 'd3';
-import { json } from 'd3-fetch'
 
 
 // Population par canton en 2020
-import population from '../data/population-par-canton-2020.csv'
+import data from '../data/population-par-canton-2020.csv'
 
+const tableau = data.map((d, i) => {
+    const values = {
+        "Cantons": d.cantons,
+        "Population_31_decembre": d.population,
+    }
+    return values
+})
 
-// console.log("Test");
+// Marges et canevas
+let margin = { top: 90, right: 190, bottom: 60, left: 190 };
+let width = 1200 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
-let listeCantons = []
-
-population.forEach(row => {
-    let cantonsData = {};
-    cantonsData[row['Cantons']] = row['Population_1er_janvier']
-    // row['Cantons', 'Population_1er_janvier', 'Naissances', 'Deces', 'Accroissement_naturel', 'Migrations_internationales', 'Migrations_intercantonales', 'Population_31_decembre', 'Variation']
-    listeCantons.push(cantonsData)
-});
-// console.log(listeCantons);
-
-let margin = { top: 20, right: 20, bottom: 30, left: 50 },
-    width = 650 - margin.left - margin.right,
-    height = 2000 - margin.top - margin.bottom;
-
-//  d3.select("body")
-//     .append("div")
-//     .attr('id', 'graph4')
+d3.select("body")
+    .append("div")
+    .attr('id', 'graph4')
 
 let svg = d3.select("#graph4")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom);
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
-// Map and projection
-let path = d3.geoPath();
-let projection = d3.geoMercator()
-    .scale(70)
-    .center([0, 20])
-    .translate([width / 2, height / 2]);
+//      d3.select("body")
+//     .append("div")
+//     .attr('id', 'graph4')
+
+// let svg = d3.select("#graph4")
+//     .append("svg")
+//     .attr("width", width + margin.left + margin.right)
+//     .attr("height", height + margin.top + margin.bottom);
+
+
+//Définition des échelles 
+// let x = d3.scaleBand() //echelle//Pour avoir le nom en dessous de la band (colonne) pour les données ordinales   
+//     .domain(tableau.map(d => d.cantons))
+//     .range([0, width]); //Pour avoir les différents traits
+
+
+// let y = d3.scaleLinear() //echelle
+//     .domain([0, 100]) //Pour avoir les différents traits
+//     .range([height, 0]); //Inverser l'ordre pour les données quantitatives //range doit être contenu dans le canva
+
+
+// //Création des axes    
+// svg.append("g") //Pour créer les axes il faut appeler les échelles correspondantes
+//     .attr("class", "axisY")
+//     .call(d3.axisLeft(y))
+//     .selectAll("text")
+//     .style("font-size", "16px");
+
+
+// svg.append("g") //Pour créer les axes il faut appeler les échelles correspondantes
+//     .attr("class", "axisX")
+//     .attr("transform", "translate(0," + height + ")") //Sinon l'axe est en haut...
+//     .call(d3.axisBottom(x))
+//     .selectAll("text")
+//     .attr("transform", "translate(-2,10)") //Pour décaler les textes un peu plus bas
+//     .style("font-size", "16px");
+
+
+// //Création du graphique
+// svg.selectAll("bars")
+//     .data(tableau)
+//     .enter()
+//     .append("rect")
+//     .attr("class", "rectangle")
+//     .attr('x', (d, i) => x(d.cantons) + 40)
+
+//     // .attr('y', d => y(d.temps) -0.3)
+//     .attr("y", d => y(0)) //comme le range est inversé le 0 est maintenant en bas
+
+//     .attr("height", d => height - y(0)) 
+//     // .attr("height", d => y(0) - y(d.temps))
+
+//     .attr("fill", `palevioletred`)
+//     .attr("width", x.bandwidth() / 2)
+
+//     .transition()
+//     .ease(d3.easeBounceOut)
+//     .duration(3600)
+//     .attr("y", d => y(d.population) -0.9)
+//     .attr("height", d => height - y(d.population) )
+//     .delay((d,i)=> i*100)
+
+
+// //Labels du graphique
+// svg.append('text')
+//     .text("cantons")
+//     .attr('text-anchor', 'end')
+//     .attr("x", width + 75)
+//     .attr("y", height - 4)
+//     .style("font-size", "30")
+//     .style("text-decoration", "bold")
+//     .style("fill", `#black`)
+//     .style("font-family", `Montserrat`)
+
+// //
+// svg.append('text')
+//     .text("population")
+//     .attr('text-anchor', 'end')
+//     .attr("transform", "rotate(-90)")
+//     .attr("x", 50)
+//     .attr("y", 25)
+//     .style("font-size", "30")
+//     .style("text-decoration", "bold")
+//     .style("fill", `black`)
+//     .style("font-family", `Montserrat`)
+
+// //
+//     svg.append("text")
+//     .text("La population par cantons en suisse en 2020")
+//     .transition()
+//     .ease(d3.easeLinear)
+//     .duration(500)
+//     .attr("x", 180)
+//     .attr("y", 0)
+//     .style("font-size", "30")
+//     .style("text-decoration", "bold")
+//     .style("fill", `black`)
+//     .style("font-family", `Montserrat`)
+
+
+//     svg.selectAll("bars")
+//     .data(tableau)
+//     .enter()
+//     .append('text')
+//     .text((d, i) => d.population)
+//     .attr('x', (d, i) => x(d.cantons) + 57)
+//     .attr("y", y(0))
+//     .style("font-size", "0")
+
+//     .transition()
+//     .ease(d3.easeQuadIn)
+//     .duration(1950)
+//     .attr("y", 180)
+//     .attr("height", d => height - y(d.temps) )
+
+//     .style("font-size", "20")
+//     .style("text-decoration", "bold")
+//     .attr("fill", `palevioletred`)
+//     .style("font-family", `Montserrat`)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // console.log("Test");
+
+// let listeCantons = []
+
+// population.forEach(row => {
+//     let cantonsData = {};
+//     cantonsData[row['Cantons']] = row['Population_1er_janvier']
+//     // row['Cantons', 'Population_1er_janvier', 'Naissances', 'Deces', 'Accroissement_naturel', 'Migrations_internationales', 'Migrations_intercantonales', 'Population_31_decembre', 'Variation']
+//     listeCantons.push(cantonsData)
+// });
+// // console.log(listeCantons);
+
+// let margin = { top: 20, right: 20, bottom: 30, left: 50 },
+//     width = 650 - margin.left - margin.right,
+//     height = 2000 - margin.top - margin.bottom;
+
+// //  d3.select("body")
+// //     .append("div")
+// //     .attr('id', 'graph4')
+
+// let svg = d3.select("#graph4")
+//     .append("svg")
+//     .attr("width", width + margin.left + margin.right)
+//     .attr("height", height + margin.top + margin.bottom);
+
+// // Map and projection
+// let path = d3.geoPath();
+// let projection = d3.geoMercator()
+//     .scale(70)
+//     .center([0, 20])
+//     .translate([width / 2, height / 2]);
 
 // // Data and color scale
 // let data = new Map();
