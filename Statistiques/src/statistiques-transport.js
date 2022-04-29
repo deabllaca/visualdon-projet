@@ -14,7 +14,6 @@ const tableau = fichier.map((d, i) => {
 
 
 
-
 //Définition des marges
 let margin = { top: 90, right: 190, bottom: 60, left: 190 };
 let width = 1200 - margin.left - margin.right,
