@@ -185,6 +185,18 @@ svg.append("text")
     .style("fill", `palevioletred`)
     .style("font-family", `Montserrat`)
 
+    svg.append('text')
+    .text("mètres")
+    .attr('text-anchor', 'end')
+    .attr("transform", "rotate(-90)")
+    .attr("x", 50)
+    .attr("y", 27)
+    .style("font-size", "30")
+    .style("text-decoration", "bold")
+    .style("fill", `black`)
+    .style("font-family", `Montserrat`)
+
+
 
     // svg.selectAll("cercles")
     // .data(tableau)
