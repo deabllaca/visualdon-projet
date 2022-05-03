@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 // Population par canton en 2020
 import data from '../data/dataset-loyer-moyen-par-canton.csv'
-import carte from './data/CarteCH.svg'
+// import carte from './data/CarteCH.svg'
 
 
 // Create a path object to manipulate geo data
@@ -33,28 +33,55 @@ let svg = d3.select("#graph-loyer-moyen").append("svg")
     .attr("class", "Blues");
 
 
+
+
+
+
+    
+
 //On fait un append du groupe qui contriendra les paths de nos cantons
-const cant = svg.append("g")
+// const cant = svg.append("g")
+//     .attr('id', 'map')
+//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+//     .append();
+
+// let carte = d3.xml("CarteCH.svg", "image/svg+xml", function (error, xml) {		/* embed the SVG map */
+//     if (error) throw error;
+// });
+
+// var svgMap = xml.getElementsByTagName("g")[0];			/* set svgMap to root g */
+// switzerland = main_chart_svg.node().appendChild(svgMap);		/* island of Ireland map */
+// d3.select(switzerland).selectAll("#NI")					/* Group Northern Ireland together */
+//     .attr("class", "region NI");
+
+// d3.select(switzerland).selectAll("#republic")				/* Group Republic of Ireland together */
+//     .attr("class", "region republic");
+// d3.select(switzerland).selectAll("#republic").selectAll("path")		/* Map Republic counties to rental data */
+//     .attr("class", function (d) {
+//         return quantize(rateById.get(this.id));
+//     })
+//     .append("title").text(function (d) {				/* add title = name of each county and average rental */
+//         return this.parentNode.id + ", " + format(rateById.get(this.parentNode.id))
+//     });
+
+// d3.select(switzerland).selectAll("#republic").selectAll("path")
+//     .on("mouseover", function (d) {
+//         if (d3.select(this).classed("active")) return;		/* no need to change class when county is already selected */
+//         d3.select(this).attr("class", "hover");
+//     })
+//     .on("mouseout", function (d) {
+//         if (d3.select(this).classed("active")) return;
+//         d3.select(this).attr("class", function (d) { 			/* reset county color to quantize range */
+//             return quantize(rateById.get(this.id))
+//         });
+//     })
 
 
-
-
-
-
-
-
-
-
-
-
-    .attr('id', 'map')
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-
-    //la légende
-    .append("g")
-    .attr('id', 'legend')
-    .attr("transform", "translate(1000, 50)")
-    .enter()
+    // //la légende
+    // .append("g")
+    // .attr('id', 'legend')
+    // .attr("transform", "translate(1000, 50)")
+    // .enter()
 
 
 
