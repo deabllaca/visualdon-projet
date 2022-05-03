@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 
 // Population par canton en 2020
 import data from '../data/dataset-loyer-moyen-par-canton.csv'
-import carte from '../data/map.json'
+// import carte from '../data/swiss-maps.json'
 
 // Marges et canevas
 let margin = { top: 90, right: 190, bottom: 60, left: 190 };
@@ -40,7 +40,7 @@ const svg = d3.select("#graph-loyer-moyen").append("svg")
 
 const deps = svg.append("g");
 
-d3.json('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson').then(function(geojson) {
+d3.json('../data/swiss-maps.json').then(function(geojson) {
 
 //dessiner le path avec les features des données
     deps.selectAll("path")
