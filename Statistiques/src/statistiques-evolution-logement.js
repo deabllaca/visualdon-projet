@@ -13,8 +13,6 @@ const tableau = fichier.map((d, i) => {
     return values
 })
 
-console.log(tableau);
-
 
 
 
@@ -120,7 +118,7 @@ function mouseLeave() {
 }
 
 svg.append('g')
-        .selectAll("dot")
+        .selectAll("circles")
         .data(tableau)
         .enter()
         .append("circle")

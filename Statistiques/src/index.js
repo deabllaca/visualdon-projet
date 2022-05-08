@@ -1,12 +1,12 @@
 // import "./statistiques-menages.js"
 // import "./statistiques-loyermoyen-canton.js"
-// import "./statistiques-forets.js"
 import "./statistiques-transport.js"
 import "./statistiques-sommets.js"
 import "./statistiques-population.js"
 import "./statistiques-lacs.js"
 import "./statistiques-evolution-importation.js"
 import "./statistiques-evolution-logement.js"
+import "./statistiques-forets.js"
 
 
 import * as d3 from 'd3';
