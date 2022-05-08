@@ -167,7 +167,7 @@ function displaygraph(tab) {
             //Any time the mouse moves, the tooltip should be at the same position
             tooltip
                 .style("left", event.x + "px")
-                .style("top", event.y + 2900 + "px")
+                .style("top", event.y + 2400 + "px")
 
             const nombre = tab.find(element =>
                 element.pays === d.properties.name)

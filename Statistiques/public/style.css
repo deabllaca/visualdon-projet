@@ -1,18 +1,19 @@
+@namespace svg url(http://www.w3.org/2000/svg);
+/* Necessary to select only SVG <a> elements, and not also HTML's.
+   See warning below */
+
 .rectangle:hover {
-    fill: #00ffc3;
+  fill: #00ffc3;
 }
 
 
 .chart-container {
-    width: 600px;
-  }
-  
-  #pie-chart {
-    width: 100%;
-  }
+  width: 600px;
+}
 
-
-
+#pie-chart {
+  width: 100%;
+}
 
 div.tooltip {
   position: absolute;
@@ -25,4 +26,24 @@ div.tooltip {
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
+}
+
+
+
+
+#stats-transport {
+  display: flex;
+ 
+}
+
+
+main section {
+  display: none;
+  margin: auto;
+  /* max-width: 1200px; max-width pour les gros écrans... éviter d'avoir une liste de 12'000px de large */
+}
+
+main section.active { /* avec la classe "active", on affiche la section */
+  display: flex;
+  margin: auto;
 }
