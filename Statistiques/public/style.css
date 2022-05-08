@@ -31,10 +31,16 @@ div.tooltip {
 
 
 
+<<<<<<< HEAD
+/* #stats-transport {
+  display: none;
+} */
+=======
 #stats-transport {
   display: none;
  
 }
+>>>>>>> refs/remotes/origin/main
 
 
 main section {
