@@ -3,20 +3,6 @@ import { event as d3event } from 'd3-selection'
 import data from '../data/dataset-importation-modifie.csv'
 
 
-const tableau = data.map((d, i) => {
-
-    const annee = '2020'
-    const values = {
-        "pays": d.pays,
-        "nombre": d[`${annee}`],
-        "annee": annee
-
-    }
-    return values
-})
-
-const tableau2 = tableau
-
 
 
 
@@ -48,7 +34,7 @@ path.projection(projection); //associer le path à la projection
 let colorScale = d3.scaleSequentialPow(d3.interpolateMagma)
 
     .domain([200000, 0])
-    .exponent(0.5)
+    .exponent(0.4)
 
 
 const svg = d3.select("#graph-importation").append("svg")
@@ -87,6 +73,8 @@ function displaygraph(tab) {
 
                 .attr("d", path)
                 .attr("class", "pays")
+                // .transition()
+                // .duration(750)
                 .attr("fill", function (d) {
                     const country = tab.find((country) => {
                         // console.log(country.pays);
@@ -102,31 +90,33 @@ function displaygraph(tab) {
                 .on("mousemove", mousemove)
                 .on("mouseleave", mouseLeave),
 
-                update => update.transition(d3.transition()
 
-                    .duration(500)
+                update => update
+                    // .transition()
+                    // .duration(100)
 
-                    // .attr("fill", function (d) {
-                    //     const hello = tab.find((hello) => {
-                    //         console.log(hello.pays);
-                    //         return hello.pays == d.properties.name
-                    //     })
-                    //     if (hello) {
-                    //         return colorScale(hello.nombre)
-                    //     }
-                    // }
+                    .attr("d", path)
+                    .attr("class", "pays")
+                    .transition()
+                    .duration(750)
+                    .attr("fill", function (d) {
+                        const country = tab.find((country) => {
+                            // console.log(country.pays);
+                            return country.pays == d.properties.name
+                        })
+                        if (country) {
+                            return colorScale(country.nombre)
+                        }
+                    })
 
-                    ,
-                    exit => exit.remove())
-
-
-
-
-
-
+                    .style("opacity", .8)
+                    .on("mouseover", mouseOver)
+                    .on("mousemove", mousemove)
+                    .on("mouseleave", mouseLeave)
 
 
             )
+
         //create the functions
         function mouseOver() {
             d3.selectAll('.pays')
@@ -169,9 +159,12 @@ function displaygraph(tab) {
                 .style("left", event.x + "px")
                 .style("top", event.y + 3400 + "px")
 
+
             const nombre = tab.find(element =>
                 element.pays === d.properties.name)
+
             console.log(nombre)
+
 
             if (nombre) {
                 tooltip
@@ -224,9 +217,18 @@ svg.append("text")
 
 
 
+const tab = data.map((d, i) => {
 
+    const values = {
+        "pays": d.pays,
+        "nombre": d[2020],
+        "annee": 2020
 
-displaygraph(tableau)
+    }
+    return values
+})
+
+displaygraph(tab)
 
 
 //animation
@@ -246,8 +248,11 @@ boutons
     .attr("id", "stop")
     .text("stop")
 
+
+
 // Variable où on stocke l'id de notre intervalle
 let nIntervId;
+let annee;
 
 function animate() {
     // regarder si l'intervalle a été déjà démarré
@@ -257,6 +262,8 @@ function animate() {
 }
 
 let i = 1990;
+
+
 function play() {
     // Recommencer si à la fin du tableau
     if (i == 2020) {
@@ -269,11 +276,21 @@ function play() {
     d3.select('.paragraphe')
         .text(`${[i]}`)
 
-    tableau2.forEach(element => {
-        element.annee = i
-    });
+    annee = i
 
-    displaygraph(tableau2);
+    const tableau = data.map((d, i) => {
+
+        const values = {
+            "pays": d.pays,
+            "nombre": d[annee],
+            "annee": annee
+
+        }
+        return values
+    })
+
+    // deps.selectAll("*").remove();
+    displaygraph(tableau);
 }
 
 
