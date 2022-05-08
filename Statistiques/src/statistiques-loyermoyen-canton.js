@@ -1,10 +1,16 @@
 import * as d3 from 'd3';
 
-
-
 // Population par canton en 2020
 import data from '../data/dataset-loyer-moyen-par-canton.csv'
-// import carte from '../data/swiss-maps.json'
+import carte from '../data/map.json'
+
+// import * as topojson from "topojson-client";
+
+// const topo = await import(`swiss-maps/2021/ch-combined.json`);
+
+// const municipalities = topojson.feature(topo, topo.objects.municipalities);
+
+// console.log(municipalities)
 
 // Marges et canevas
 let margin = { top: 90, right: 190, bottom: 60, left: 190 };
@@ -24,7 +30,7 @@ d3.select("body")
 const path = d3.geoPath();
 
 //Pour définir le centre de la carte
-const projection = d3.geoConicConformal()
+const projection = d3.geoMercator()
   .center([2.454071, 46.279229])
   .scale(1000) //Pour définir la couverture
   .translate([width / 2, height / 2]);
@@ -40,7 +46,9 @@ const svg = d3.select("#graph-loyer-moyen").append("svg")
 
 const deps = svg.append("g");
 
-d3.json('../data/swiss-maps.json').then(function(geojson) {
+d3.json(carte).then(function(geojson) {
+
+    console.log(carte);
 
 //dessiner le path avec les features des données
     deps.selectAll("path")
@@ -53,8 +61,27 @@ d3.json('../data/swiss-maps.json').then(function(geojson) {
 
 
 
-// // Create a path object to manipulate geo data
-// // const path = d3.geoPath();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
 
 // const tableau = data.map((d, i) => {
 //     const values = {
@@ -70,16 +97,6 @@ d3.json('../data/swiss-maps.json').then(function(geojson) {
 // //On fait un append du groupe qui contriendra les paths de nos cantons
 
 
-
-
-
-
-
-    
-
-
-
-
 //     .attr('id', 'map')
 //     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
@@ -88,15 +105,6 @@ d3.json('../data/swiss-maps.json').then(function(geojson) {
 //     .attr('id', 'legend')
 //     .attr("transform", "translate(1000, 50)")
 //     .enter()
-
-
-
-
-
-
-
-
-
 
 // // Construction de la légande
 // legend.selectAll()

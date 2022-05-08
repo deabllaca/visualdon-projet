@@ -223,6 +223,7 @@ boutons
 
 
 d3.select('.altitude').on('click', () => {
+
     g.selectAll("*").remove();
     let nom = "Altitude"
     let unité ="[m]"

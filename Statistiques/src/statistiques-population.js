@@ -11,7 +11,7 @@ const tableau = data.map((d, i) => {
     }
     return values
 })
-console.log(tableau)
+
 
 
 // Marges et canevas
