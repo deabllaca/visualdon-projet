@@ -15,11 +15,32 @@
   width: 100%;
 }
 
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  min-height: 28px;
+  padding: 8px 12px;
+  font: 12px sans-serif;
+  background: lightgray;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
 
 
+
+
+<<<<<<< HEAD
 /* #stats-transport {
   display: none;
 } */
+=======
+#stats-transport {
+  display: flex;
+ 
+}
+>>>>>>> refs/remotes/origin/main
 
 
 main section {
