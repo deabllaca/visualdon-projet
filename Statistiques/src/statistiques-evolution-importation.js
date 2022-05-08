@@ -60,6 +60,7 @@ let tooltip = d3.select("#graph-importation")
     .attr("class", "tooltip")
     .style("visibility", "hidden")
 
+           
 
 
 function displaygraph(tab) {
@@ -73,8 +74,6 @@ function displaygraph(tab) {
 
                 .attr("d", path)
                 .attr("class", "pays")
-                // .transition()
-                // .duration(750)
                 .attr("fill", function (d) {
                     const country = tab.find((country) => {
                         // console.log(country.pays);
@@ -85,23 +84,18 @@ function displaygraph(tab) {
                     }
                 })
 
-                .style("opacity", .8)
-                .on("mouseover", mouseOver)
-                .on("mousemove", mousemove)
-                .on("mouseleave", mouseLeave),
+            .style("opacity", .8)
+            .on("mouseover", mouseOver)
+            .on("mousemove", mousemove)
+            .on("mouseleave", mouseLeave),
 
 
                 update => update
-                    // .transition()
-                    // .duration(100)
 
                     .attr("d", path)
                     .attr("class", "pays")
-                    .transition()
-                    .duration(750)
                     .attr("fill", function (d) {
                         const country = tab.find((country) => {
-                            // console.log(country.pays);
                             return country.pays == d.properties.name
                         })
                         if (country) {
@@ -114,68 +108,106 @@ function displaygraph(tab) {
                     .on("mousemove", mousemove)
                     .on("mouseleave", mouseLeave)
 
+                   
+
 
             )
 
-        //create the functions
-        function mouseOver() {
-            d3.selectAll('.pays')
-                .transition()
-                .duration(200)
-                .style("opacity", .4)
-            d3.select(this)
-                .transition()
-                .duration(200)
-                .style("opacity", 4)
-                .style("stroke", "#fff")
-
-            tooltip.style("visibility", "visible")
-            tooltip.transition().duration(200)
-
-        }
-
-        function mouseLeave() {
-            d3.selectAll('.pays')
-                .transition()
-                .duration(200)
-                .style("opacity", .8)
-            d3.select(this)
-                .transition()
-                .duration(200)
-                .style("stroke", "#fff")
-
-            tooltip.style("visibility", "hidden")
-            tooltip.transition().duration(200).style("opacity", 0)
-        }
 
 
-        function mousemove(event, d) {
-            tooltip.transition()
-                .duration(200)
-                .style("opacity", .9);
-
-            //Any time the mouse moves, the tooltip should be at the same position
-            tooltip
-                .style("left", event.x + "px")
-                .style("top", event.y + 3400 + "px")
+            
 
 
-            const nombre = tab.find(element =>
-                element.pays === d.properties.name)
 
-            console.log(nombre)
+                      //create the functions
+
+                      function mousemove(event, d) {
+                        tooltip.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+            
+                        //Any time the mouse moves, the tooltip should be at the same position
+                        tooltip
+                            .style("left", event.x + "px")
+                            .style("top", event.y + 3400 + "px")
+            
+            
+                        const nombre = tab.find(element =>
+                            element.pays === d.properties.name)
+                            console.log(nombre)
+            
+            
+                        if (nombre) {
+                            tooltip
+                                .html(`${d.properties.name} : ${nombre.nombre}  `)
+                        } else {
+                            tooltip
+                                .html(`${d.properties.name} : pas de données  `)
+                        }
+            
+            
+                    }
+                      function mouseOver() {
+                        d3.selectAll('.pays')
+                            .transition()
+                            .duration(200)
+                            .style("opacity", .4)
+                        d3.select(this)
+                            .transition()
+                            .duration(200)
+                            .style("opacity", 4)
+                            .style("stroke", "#fff")
+            
+                        tooltip.style("visibility", "visible")
+                        tooltip.transition().duration(200)
+            
+                    }
+            
+                    function mouseLeave() {
+                        d3.selectAll('.pays')
+                            .transition()
+                            .duration(200)
+                            .style("opacity", .8)
+                        d3.select(this)
+                            .transition()
+                            .duration(200)
+                            .style("stroke", "#fff")
+            
+                        tooltip.style("visibility", "hidden")
+                        tooltip.transition().duration(200).style("opacity", 0)
+                    }
+
+                    function mousemove(event, d) {
+                        tooltip.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+            
+                        //Any time the mouse moves, the tooltip should be at the same position
+                        tooltip
+                            .style("left", event.x + "px")
+                            .style("top", event.y + 3400 + "px")
+            
+            
+                        const nombre = tab.find(element =>
+                            element.pays === d.properties.name)
+                            // console.log(nombre);
+            
+            
+                        if (nombre) {
+                            tooltip
+                                .html(`${d.properties.name} : ${nombre.nombre}  `)
+                        } else {
+                            tooltip
+                                .html(`${d.properties.name} : pas de données  `)
+                        }
+            
+            
+                    }
+            
+            
+                    
 
 
-            if (nombre) {
-                tooltip
-                    .html(`${d.properties.name} : ${nombre.nombre}  `)
-            } else {
-                tooltip
-                    .html(`${d.properties.name} : pas de données  `)
-            }
-
-
-        }
     })
 }
 
@@ -301,15 +333,6 @@ function stop() {
     clearInterval(nIntervId);
     nIntervId = null;
 }
-
-// // Fonction de mise à jour du graphique
-// function updateChart(tab) {
-//     displaygraph(tab)
-//     update => update.transition(d3.transition()
-//         .duration(500),
-//         displaygraph(tab),
-//         exit => exit.remove())
-// }
 
 // Event listener
 document.getElementById("play").addEventListener("click", animate);
