@@ -114,7 +114,7 @@ function displaygraph(tab) {
                     //     if (hello) {
                     //         return colorScale(hello.nombre)
                     //     }
-                    // })
+                    // }
 
                     ,
                     exit => exit.remove())
