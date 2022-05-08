@@ -200,24 +200,31 @@ let boutons = d3.select("#graph3")
     .append("g")
     .attr("class", "boutons")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+    .attr ('x', '80')
+    .attr ('y', '80')
 
 boutons
     .append("button")
+    .attr("class", "button")
     .attr("class", "superficie")
     .text("superficie")
+    
 
 boutons
     .append("button")
+    .attr("class", "button")
     .attr("class", "altitude")
     .text("altitude")
 
 boutons
     .append("button")
+    .attr("class", "button")
     .attr("class", "contenu")
     .text("contenu")
 
 boutons
     .append("button")
+    .attr("class", "button")
     .attr("class", "profondeur")
     .text("profondeur")
 

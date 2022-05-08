@@ -28,6 +28,7 @@ let svg = d3.select("#graph1")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
@@ -89,6 +90,14 @@ svg.selectAll("bars")
     .delay((d,i)=> i*100)
 
 
+
+
+
+
+
+
+
+
 //Labels du graphique
 svg.append('text')
     .text("années")
@@ -145,6 +154,8 @@ svg.append('text')
     .style("text-decoration", "bold")
     .attr("fill", `palevioletred`)
     .style("font-family", `Montserrat`)
+
+    
 
 
 

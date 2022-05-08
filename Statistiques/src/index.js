@@ -1,10 +1,13 @@
-import "./statistiques-menages.js"
+// import "./statistiques-menages.js"
+// import "./statistiques-loyermoyen-canton.js"
+// import "./statistiques-forets.js"
 import "./statistiques-transport.js"
 import "./statistiques-sommets.js"
 import "./statistiques-population.js"
 import "./statistiques-lacs.js"
-// import "./statistiques-loyermoyen-canton.js"
 import "./statistiques-evolution-importation.js"
+import "./statistiques-evolution-logement.js"
+
 
 import * as d3 from 'd3';
 import { json } from 'd3-fetch' // Pour dire qu'on utilise d3
@@ -67,3 +70,26 @@ function displaySection() {
 
     }
 }
+
+
+
+
+//animer les boutons pour le fuuuun
+
+function expandCircle() {
+    d3.selectAll('#btn-transport2 circle')
+        .transition()
+        .duration(2000)
+        .attr('r', 20)
+        .on('end', contractCircle);
+}
+
+function contractCircle() {
+    d3.selectAll('#btn-transport2 circle')
+        .transition()
+        .duration(2000)
+        .attr('r', 7)
+        .on('end', expandCircle);
+}
+
+expandCircle()
