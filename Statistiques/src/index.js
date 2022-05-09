@@ -7,6 +7,8 @@ import "./statistiques-lacs.js"
 import "./statistiques-evolution-importation.js"
 import "./statistiques-evolution-logement.js"
 import "./statistiques-forets.js"
+import "./statistiques-evolutions-votations.js"
+import "./statistiques-production-lait.js"
 
 
 import * as d3 from 'd3';
