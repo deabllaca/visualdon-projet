@@ -28,6 +28,16 @@ div.tooltip {
   pointer-events: none;
 }
 
+/* .buttons {
+  position: flex;
+  text-align: center;
+  width: 60px;
+  min-height: 28px;
+  padding: 8px 12px;
+  font: 12px sans-serif;
+  border: 0px;
+  border-radius: 10px;
+} */
 
 
 

@@ -1,33 +1,32 @@
 ﻿region;ha;pourcent
-Total               ;1 268 383;100
-Région lémanique    ; 239 661;18,9
-Vaud              ; 127 074;10
-Valais            ; 109 584;8,6
-Genève            ; 3 003;0,2
-Espace Mittelland   ; 317 892;25,1
-Berne             ; 177 541;14
-Fribourg          ; 41 596;3,3
-Soleure           ; 31 708;2,5
-Neuchâtel         ; 30 757;2,4
-Jura              ; 36 290;2,9
-Suisse du Nord-Ouest; 69 932;5,5
-Basel-Ville       ;471;0
-Basel-Campagne    ; 20 356;1,6
-Argovie           ; 49 105;3,9
-Zurich              ; 50 260;4
-Suisse orientale    ; 327 264;25,8
-Glaris            ; 21 150;1,7
-Schaffhouse       ; 12 691;1
-Appenzell Rh. Ext.; 7 181;0,6
-Appenzell Rh. Int.; 4 874;0,4
-Saint-Gall        ; 60 006;4,7
-Grisons           ; 201 240;15,9
-Thurgovie         ; 20 122;1,6
-Suisse centrale     ; 121 560;9,6
-Lucerne           ; 40 190;3,2
-Uri               ; 20 637;1,6
-Schwyz            ; 27 844;2,2
-Obwald            ; 18 659;1,5
-Nidwald           ; 7 772;0,6
-Zoug              ; 6 458;0,5
-Tessin              ; 141 814;11,2
+Région lémanique;239661;18.9
+Vaud;127074;10
+Valais;109584;8.6
+Genève;3003;0.2
+Espace Mittelland;317892;25.1
+Berne;177541;14
+Fribourg;41596;3.3
+Soleure;31708;2.5
+Neuchâtel;30757;2.4
+Jura;36290;2.9
+Suisse du Nord-Ouest;69932;5.5
+Basel-Ville;471.0
+Basel-Campagne;20356;1.6
+Argovie;49105;3.9
+Zurich;50260;4
+Suisse orientale;327264;25.8
+Glaris;21150;1.7
+Schaffhouse;12691;1
+Appenzell Rh. Ext.;7181;0.6
+Appenzell Rh. Int.;4;0.4
+Saint-Gall;60006;4.7
+Grisons;201240;15.9
+Thurgovie;20122;1.6
+Suisse centrale;121560;9.6
+Lucerne;40190;3.2
+Uri;20637;1.6
+Schwyz;27844;2.2
+Obwald;18659;1.5
+Nidwald;7772;0.6
+Zoug;6458;0.5
+Tessin;141814;11.2
