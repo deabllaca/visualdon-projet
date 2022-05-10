@@ -278,5 +278,26 @@ function contractCircle() {
         .on('end', expandCircle);
 }
 
+
+function movenuage() {
+    d3.selectAll('.nuage')
+        .transition()
+        .ease(d3.easeLinear)
+        .duration(15000)
+        .attr("transform", "translate(1400,0)")
+        .on('end', keepmovingnuage);
+}
+
+function keepmovingnuage() {
+    d3.selectAll('.nuage')
+    .transition()
+    .ease(d3.easeLinear)
+    .duration(15000)
+    .attr("transform", "translate(-1400,0)")
+    .on('end', movenuage);
+}
+
+movenuage()
 expandCircle()
+
 
