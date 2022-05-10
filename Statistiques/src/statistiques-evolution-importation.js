@@ -107,10 +107,7 @@ function displaygraph(tab) {
                     .on("mouseover", mouseOver)
                     .on("mousemove", mousemove)
                     .on("mouseleave", mouseLeave)
-
-                   
-
-
+             
             )
 
 
