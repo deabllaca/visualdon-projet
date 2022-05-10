@@ -55,16 +55,19 @@ main section {
 
 main section.active { /* avec la classe "active", on affiche la section */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: auto;
   justify-content: space-between;
 }
 
-div {
-  flex-direction: row;
+/* div {
+  flex-direction : row;
   justify-content: space-between;
+} */
+
+
+
+
+h1 {
+  font-size: 50px ;
 }
-
-
-
-
