@@ -52,7 +52,7 @@ export default function loger() {
         .range([0, width])
 
     let y = d3.scaleLinear()
-        .domain([3000000, 5000000])
+        .domain([0, 5000000])
         .range([height, 0]);
 
     //Création des axes

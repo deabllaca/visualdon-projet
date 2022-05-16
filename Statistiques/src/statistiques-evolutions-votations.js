@@ -159,7 +159,7 @@ export default function vote() {
         .attr('text-anchor', 'end')
         .attr("x", width + 35)
         .attr("y", height - 4)
-        .style("font-size", "30")
+        .style("font-size", "0")
         .style("text-decoration", "bold")
         .style("fill", `#black`)
         .style("font-family", `Montserrat`)

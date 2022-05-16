@@ -43,7 +43,7 @@ div.tooltip {
 
 #stats-transport {
   display: none;
- 
+
 }
 
 
@@ -53,9 +53,10 @@ main section {
   /* max-width: 1200px; max-width pour les gros écrans... éviter d'avoir une liste de 12'000px de large */
 }
 
-main section.active { /* avec la classe "active", on affiche la section */
+main section.active {
+  /* avec la classe "active", on affiche la section */
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   margin: auto;
   justify-content: space-between;
 }
@@ -69,5 +70,6 @@ main section.active { /* avec la classe "active", on affiche la section */
 
 
 h1 {
-  font-size: 50px ;
+  font-size: 50px;
 }
+

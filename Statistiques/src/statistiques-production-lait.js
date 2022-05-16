@@ -39,7 +39,7 @@ export default function lait() {
         .range([0, width]); //Pour avoir les différents traits
 
     let y = d3.scaleLinear() //echelle
-        .domain([2000, 5000]) //Pour avoir les différents traits
+        .domain([0, 5000]) //Pour avoir les différents traits
         .range([height, 0]); //Inverser l'ordre pour les données quantitatives //range doit être contenu dans le canva
 
 
